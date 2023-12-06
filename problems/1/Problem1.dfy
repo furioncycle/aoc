@@ -6,7 +6,7 @@ module Problem1 {
     import opened ParseInt
     import opened Dafny.Collections.Seq
 
-    method print_seq<T>(xs: seq<T>) 
+    method print_seq<T>(xs: seq<T>)
     {
         var i := 0;
         while i < |xs|
@@ -26,7 +26,9 @@ module Problem1 {
         var numsStr := Map(line => Filter(charInNC, line), lines);
 
         // Make the two-digit number in strings
-        var trunk := Map(line => [line[0],line[|line|-1]], numsStr);
+        var trunk := Map(line => 
+            assume |line| > 2;
+            [line[0],line[|line|-1]], numsStr);
 
         // Convert strings to integers
         result := Map(Integer, trunk);
@@ -34,8 +36,9 @@ module Problem1 {
         return result;   
     }
 
-    // TODO - figure if we can split this to do it using maps or folders
+    // TODO - figure if we can split this to do it using maps or folds
     function parseLine(result: seq<char>, input:  string) :  seq<char> 
+        decreases input
     {
         if |input| == 0 then result else
             if "one" <= input then 
@@ -71,7 +74,9 @@ module Problem1 {
         var line := Map(line => parseLine([], line),lines);
         
         // Make the 2 digit number
-        var twoDigit := Map(line => [line[0],line[|line|-1]],line);
+        var twoDigit := Map(line => 
+            assume |line| > 2;
+            [line[0],line[|line|-1]],line);
         
         // Convert to Integer
         result := Map(Integer, twoDigit);
