@@ -27,7 +27,7 @@ module Problem1 {
 
         // Make the two-digit number in strings
         var trunk := Map(line => 
-            assume |line| > 2;
+            assume {:axiom} |line| > 2;
             [line[0],line[|line|-1]], numsStr);
 
         // Convert strings to integers
@@ -75,7 +75,7 @@ module Problem1 {
         
         // Make the 2 digit number
         var twoDigit := Map(line => 
-            assume |line| > 2;
+            assume  {:axiom}  |line| > 2;
             [line[0],line[|line|-1]],line);
         
         // Convert to Integer
