@@ -1,9 +1,9 @@
-# Dafny Advent-of-Code template
-For those participating in Advent of Code this template provides a convenient structure and runner for completing the challenges in Dafny, the software verification programming language. Dafny is still under development and File IO is a bit challenging because it relies on foreign function calls to do IO. Luckily, the Dafny community has provided a libary for Dafny 4.0 that includes simple IO capabilities. 
+# Dafny Advent-of-Code 2023
 
+Trying to learn a bit about dafny, heavily using the template from [hath995](https://github.com/hath995/Dafny-AoC-template)
 
 ### Installation
-Clone the repository into a new folder per year. 
+Clone the repository. 
 
 `git clone --recurse-submodules git@github.com:hath995/Dafny-AoC-template.git dafny-aoc-2023`
 
