@@ -1,12 +1,11 @@
 include "../../parser/split.dfy"
 include "../../parser/parseInt.dfy"
-include "../../libraries/src/dafny/Collections/Seqs.dfy"
 
 module Problem2 {
 
     import opened Split
     import opened ParseInt
-    import opened Dafny.Collections.Seq
+    import opened Std.Collections.Seq
     
     datatype Cube = Red | Green | Blue
     datatype Game = Game(id: int, cubes: seq<multiset<Cube>> )

@@ -1,5 +1,3 @@
-include "libraries/src/dafny/FileIO/FileIO.dfy"
-include "libraries/src/Wrappers.dfy"
 include "problems/0/Problem0.dfy"
 include "problems/1/Problem1.dfy"
 include "problems/2/Problem2.dfy"
@@ -29,7 +27,8 @@ include "problems/25/Problem25.dfy"
 //run --no-verify --unicode-char:false --target:cs "aoc-runner.dfy" --input "libraries/src/FileIO/FileIO.cs" -- "1" "1" "System.ArgumentException:"
 
 module AocRunner {
-    import opened Dafny.FileIO
+    import opened Std.FileIO
+    import opened Std.Wrappers
     import opened Problem0
     import opened Problem1
     import opened Problem2
@@ -57,7 +56,7 @@ module AocRunner {
     import opened Problem24
     import opened Problem25
 
-    function toStr(iores: FileIO.Wrappers.Result<seq<bv8>, string> ): string {
+    function toStr(iores: Wrappers.Result<seq<bv8>, string> ): string {
         match iores {
             case Success(value) => seq(|value|, i requires 0 <= i < |value| => value[i] as char)
             case Failure(e) => e

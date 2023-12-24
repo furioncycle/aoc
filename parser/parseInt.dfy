@@ -1,5 +1,5 @@
 module ParseInt {
-    import Dafny.Collections.Seq
+    import Std.Collections.Seq
     function power(x: int, i: nat): int {
         if i == 0 then 1 else if i == 1 then x else x * power(x, i-1)
     }
